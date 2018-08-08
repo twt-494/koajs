@@ -1,5 +1,7 @@
 import Koa from 'koa';
+import connectorsInit from './connectors';
 
+connectorsInit();
 const app = new Koa();
 
 app.use(async (ctx) => {
