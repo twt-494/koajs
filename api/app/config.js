@@ -15,3 +15,4 @@ export {
     MONGO_URI,
     PORT,
 };
+export default MONGO_URI;
