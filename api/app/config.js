@@ -10,9 +10,11 @@ if (!envs[env]) {
 }
 const PORT = process.env.PORT || config.get('port');
 const MONGO_URI = process.env.MONGO_URI || config.get('mongo.uri');
+const JWT_SECRET = config.get('jwt.secret');
 
 export {
     MONGO_URI,
     PORT,
+    JWT_SECRET,
 };
 export default MONGO_URI;

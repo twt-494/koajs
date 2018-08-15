@@ -13,9 +13,6 @@ export default (mongoUri) => {
             .then((mongodb) => {
                 res(mongodb);
                 console.log('Mongo Connected!');
-            })
-            .catch((err) => {
-                rej(err);
             });
   });
 };
