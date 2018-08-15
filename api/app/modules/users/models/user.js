@@ -8,33 +8,33 @@ mongoose.plugin(uniqueValidator);
 const UserSchema = new Schema({
         email: {
             type: String,
-            unique: 'User with email "VALUE" already exist',
+            unique: 'User with email "{VALUE}" already exist',
             lowercase: true,
-            required: 'Email is required'
+            required: 'Email is required',
         },
         password: {
             type: String,
-            required: "Password is required"
+            required: 'Password is required',
         },
         firstName: {
             type: String,
             lowercase: true,
-            required: 'First name is required'
+            required: 'First name is required',
         },
         lastName: {
             type: String,
             lowercase: true,
-            required: 'Last name is required'
-        }
+            required: 'Last name is required',
+        },
     },
     {
-        timestamp: true
+        timestamp: true,
     }
 );
 
 UserSchema.statics.createFields = ['email', 'password', 'firstName', 'lastName'];
 
-UserSchema.pre('save', function (next) {
+UserSchema.pre('save', function(next) {
     if (!this.isModified('password')) {
         return next();
     }
@@ -45,12 +45,12 @@ UserSchema.pre('save', function (next) {
     next();
 });
 
-UserSchema.statics.findOneWithPublicFields = function (params, cb) {
+UserSchema.statics.findOneWithPublicFields = function(params, cb) {
     return this.findOne(params, cb).select({
         password: 0,
         _id: 0,
-        __v: 0
+        __v: 0,
     });
 };
 
-export default mogoose.model('user', UserSchema);
+export default mongoose.model('user', UserSchema);

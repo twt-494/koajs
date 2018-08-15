@@ -8,7 +8,7 @@ export default () => async (ctx, next) => {
                 errors: Object.values(errors).reduce((errors, error) => ({
                     ...errors,
                     [error.path]: error.message,
-                }),{}),
+                }), {}),
             };
         } else {
             ctx.status = status;
