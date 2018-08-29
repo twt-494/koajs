@@ -17,6 +17,6 @@ function init() {
   });
 
   return Promise.all(promises);
-};
+}
 
 export default init;

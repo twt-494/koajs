@@ -12,4 +12,4 @@ async function initSeeds() {
     console.log(users);
 
     mongoConnection.connection.close();
-};
+}
