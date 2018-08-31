@@ -5,9 +5,9 @@ import { User } from '../modules/users';
 function init() {
   const promises = [];
 
-  _.times(20, ()=>{
+  _.times(500, ()=>{
       const userPromise = User.create({
-        email: `${faker.lorem.word(0, 10)}@${faker.lorem.word(0, 10)}.com`,
+        email: `${faker.lorem.word(0, 20)}-${faker.random.number(1, 999)}@${faker.lorem.word(0, 20)}.com`,
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         password: 1111,
