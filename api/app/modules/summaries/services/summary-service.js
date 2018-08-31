@@ -6,7 +6,7 @@ export default {
         const summaryCountByUserId = await Summary.count({userId});
 
         if (summaryCountByUserId === 3) {
-            throw Error('User cannot create more 3 resume');
+            throw new AppError({status: 400, message: 'User cannot create more 3 resume'});
         }
 
         return Summary.create(data);
