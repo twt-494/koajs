@@ -16,7 +16,7 @@ const UserSchema = new Schema({
         },
         hash: {
             type: String,
-            uniqiue: 'Hash mast be unique',
+            unique: 'Hash mast be unique',
         },
         password: {
             type: String,
