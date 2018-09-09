@@ -1,4 +1,5 @@
 import { Summary } from '../models';
+import AppError from '../../../helpers/appError';
 
 export default {
     async createSummary(data) {
@@ -11,9 +12,12 @@ export default {
 
         return Summary.create(data);
     },
-    async updateSummary(data, summary) {
+    updateSummary(data, summary) {
         summary.set(data);
-
-        return summary.save();
+        try {
+            return summary.save();
+        } catch (e) {
+            throw new AppError({status: 400, ...e});
+        }
     },
 };

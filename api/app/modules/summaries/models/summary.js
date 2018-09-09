@@ -65,7 +65,7 @@ const SummarySchema = new Schema({
     }],
 });
 
-SummarySchema.statics.createFields = ['title', 'phone', 'skype', 'description', 'history', 'tags'];
+SummarySchema.statics.createFields = ['title', 'phone', 'skype', 'description', 'history', 'tags', 'hash'];
 
 SummarySchema.pre('save', function(next) {
     if (!this.hash) {
@@ -74,4 +74,4 @@ SummarySchema.pre('save', function(next) {
 
     next();
 });
-export default mongoose.model('Summary', SummarySchema);
+export default mongoose.model('summary', SummarySchema);
