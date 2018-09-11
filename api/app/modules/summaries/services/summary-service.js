@@ -3,8 +3,8 @@ import AppError from '../../../helpers/appError';
 
 export default {
     async createSummary(data) {
-        const { userId } = data;
-        const summaryCountByUserId = await Summary.count({userId});
+        const { userHash } = data;
+        const summaryCountByUserId = await Summary.count({userHash});
 
         if (summaryCountByUserId === 3) {
             throw new AppError({status: 400, message: 'User cannot create more 3 resume'});
