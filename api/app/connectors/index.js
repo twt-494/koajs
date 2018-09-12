@@ -1,4 +1,4 @@
-import MONGO_URI from '../config.js';
+import { MONGO_URI } from '../config.js';
 import mongooseConnector from './mongoose-connector';
 import server from '../server';
 

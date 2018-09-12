@@ -68,7 +68,7 @@ const SummarySchema = new Schema({
         timestamps: true,
     });
 
-SummarySchema.statics.createFields = ['title', 'phone', 'skype', 'description', 'history', 'tags', 'hash'];
+SummarySchema.statics.createFields = ['title', 'phone', 'skype', 'description', 'history', 'tags'];
 
 SummarySchema.pre('save', function(next) {
     if (!this.hash) {
