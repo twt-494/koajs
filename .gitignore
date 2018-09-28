@@ -1,5 +1,5 @@
 api/node_modules/
-react/node_modules/
-react/dist/
+react-app/node_modules/
+react-app/dist/
 .idea/*
 .env

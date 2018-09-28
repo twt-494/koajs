@@ -15,7 +15,10 @@ app.use(koaWebpackMiddleware.devMiddleware(compiler, {
     stats: {
         colors: true,
     },
+    hot: true,
 }));
+
+app.use(koaWebpackMiddleware.hotMiddleware(compiler));
 
 app.use(async (ctx) => {
     ctx.set('Content-Type', 'text/html');
