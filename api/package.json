@@ -15,7 +15,6 @@
     "dotenv": "^6.0.0",
     "eslint": "^5.3.0",
     "eslint-config-google": "^0.9.1",
-    "eslint-plugin-jest": "^21.22.0",
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "jsonwebtoken": "^8.3.0",
@@ -31,7 +30,9 @@
     "supertest": "^3.3.0",
     "uuid": "^3.3.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-plugin-jest": "^21.22.1"
+  },
   "scripts": {
     "start": "babel-node app/server",
     "dev": "nodemon --exec \"npm run lint && npm start\"",
