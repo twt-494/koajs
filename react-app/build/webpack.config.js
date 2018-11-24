@@ -1,10 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: [
         'babel-polyfill',
+        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
         path.resolve(__dirname, '../src/index.js'),
     ],
     output: {
@@ -14,11 +16,15 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     plugins: [
-        new CleanWebpackPlugin(['../']),
+        new CleanWebpackPlugin([path.resolve(__dirname, '../dist')], {
+            root: path.resolve(__dirname, '..'),
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../bin/index.html'),
             inject: false,
         }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
         rules: [
@@ -44,7 +50,8 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                use: 'babel-loader',
+                exclude: /node_modules/,
+                use: ['babel-loader', 'eslint-loader'],
             },
         ],
     },
